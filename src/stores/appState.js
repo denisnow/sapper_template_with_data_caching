@@ -3,18 +3,18 @@ import { writable } from 'svelte/store';
 let appState;
 
 if (process.browser) {
-	appState = {
-		// isDisconnected: false,
-		// isConnectingInProgress: false,
-	};
 
 	const { set, subscribe } = writable(undefined);
 
-	appState.isDisconnectedStore = {
-		subscribe,
-		set: function (value) {
-			appState.isDisconnected = value;
-			set(value);
+	appState = {
+		// isDisconnected: false,
+		// isConnectingInProgress: false,
+		isDisconnectedStore: {
+			subscribe,
+			set: function (value) {
+				appState.isDisconnected = value;
+				set(value);
+			}
 		}
 	};
 
