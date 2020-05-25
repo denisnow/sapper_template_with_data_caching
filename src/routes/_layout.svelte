@@ -1,11 +1,18 @@
 <script>
 	import Nav from '../components/Nav.svelte';
+	import appState from '../stores/appState.js';
 	import browsingState from '../stores/browsingState.js';
 
 	export let segment;
 
-	if (process.browser && !browsingState.isSomePageVisited) {
-		browsingState.isSomePageVisited = true;
+	let isDisconnected, isConnectingInProgress;
+
+	if (process.browser) {
+		if (!browsingState.isSomePageVisited) {
+			browsingState.isSomePageVisited = true;
+		}
+		isDisconnected = appState.isDisconnectedStore;
+		isConnectingInProgress = appState.isConnectingInProgressStore;
 	}
 </script>
 
@@ -18,7 +25,26 @@
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
+
+	div {
+		padding: 1em 1.5em;
+		float: right;
+	}
+
+	.disconnected {
+		color: red;
+	}
+
+	.connecting {
+		color: rgb(8, 88, 88);
+	}
 </style>
+
+{#if $isConnectingInProgress}
+	<div class='connecting'>connecting</div>
+{:else if $isDisconnected}
+	<div class='disconnected'>disconnected</div>
+{/if}
 
 <Nav {segment}/>
 
