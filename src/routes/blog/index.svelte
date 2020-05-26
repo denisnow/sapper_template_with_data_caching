@@ -34,14 +34,17 @@
 
 	export let postList;
 
-	let isFetchingInProgress, isDisconnected, clickHandler;
+	let isFetchingInProgress, isDisconnected, isConnectingInProgress, clickHandler;
 
 	if (process.browser) {
 		isFetchingInProgress = postListStore.fetchingStateStore;
 		isDisconnected = appState.isDisconnectedStore;
+		isConnectingInProgress = appState.isConnectingInProgressStore;
 
 		clickHandler = function () {
-			postListStore.fetchPostList(); // with server response latency emulation, check \src\helpers\promiseFactories.js
+			$isConnectingInProgress = true;
+			postListStore.fetchPostList() // with server response latency emulation, check \src\helpers\promiseFactories.js
+				.finally( () => $isConnectingInProgress = false );
 		}
 
 		if (postList) {
