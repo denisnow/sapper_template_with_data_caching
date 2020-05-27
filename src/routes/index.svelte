@@ -1,14 +1,6 @@
 <style>
-	h1, figure, p {
+	.large, figure, p {
 		text-align: center;
-		margin: 0 auto;
-	}
-
-	h1 {
-		font-size: 2.8em;
-		text-transform: uppercase;
-		font-weight: 700;
-		margin: 0 0 0.5em 0;
 	}
 
 	figure {
@@ -25,8 +17,15 @@
 		margin: 1em auto;
 	}
 
+	.large {
+		font-size: 2.8em;
+		text-transform: uppercase;
+		font-weight: 700;
+		margin: 0 0 0.5em 0;
+	}
+
 	@media (min-width: 480px) {
-		h1 {
+		.large {
 			font-size: 3.5em;
 		}
 	}
@@ -36,7 +35,9 @@
 	<title>Sapper project template</title>
 </svelte:head>
 
-<h1>Great success!</h1>
+<h2 class='visuallyHidden'>Homepage</h2>
+
+<p class='large'>Great success!</p>
 
 <figure>
 	<img alt='Borat' src='great-success.png'>

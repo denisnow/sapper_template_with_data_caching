@@ -90,7 +90,7 @@
 		so we have to use the :global(...) modifier to target
 		all elements inside .content
 	*/
-	.content :global(h2) {
+	.content :global(h3) {
 		font-size: 1.4em;
 		font-weight: 500;
 	}
@@ -123,7 +123,7 @@
 
 {#if post}
 
-	<h1>{post.title}</h1>
+	<h2>{post.title}</h2>
 
 	<div class='content'>
 		{@html post.html}

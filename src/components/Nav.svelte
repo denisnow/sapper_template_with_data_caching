@@ -49,6 +49,7 @@
 </style>
 
 <nav>
+	<h2 class='visuallyHidden'>Navigation</h2>
 	<ul>
 		<li><a rel=prefetch aria-current='{segment === undefined ? "page" : undefined}' href='.'>home</a></li>
 		<li><a rel=prefetch aria-current='{segment === "about" ? "page" : undefined}' href='about'>about</a></li>

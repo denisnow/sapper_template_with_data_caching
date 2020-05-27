@@ -66,7 +66,7 @@
 
 {#if postList || $postListStore}
 
-	<h1>Recent posts</h1>
+	<h2>Recent posts</h2>
 
 	<ul>
 		{#each postList || $postListStore as item}

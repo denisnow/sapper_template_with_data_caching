@@ -26,7 +26,8 @@
 		box-sizing: border-box;
 	}
 
-	div {
+	p {
+		margin: 0;
 		padding: 1em 1.5em;
 		float: right;
 	}
@@ -38,12 +39,30 @@
 	.connecting {
 		color: rgb(8, 88, 88);
 	}
+
+	:global(h2) {
+		font-size: 2em;
+		margin: .67em 0;
+	}
+
+	:global(.visuallyHidden:not(:focus):not(:active)) {
+		position: absolute !important;
+		width: 1px !important;
+		height: 1px !important;
+		padding: 0 !important;
+		border: 0 !important;
+		clip: rect(1px, 1px, 1px, 1px);
+		overflow: hidden;
+		white-space: nowrap !important;
+	}
 </style>
 
+<h1 class='visuallyHidden'>Sapper project template</h1>
+
 {#if $isConnectingInProgress}
-	<div class='connecting'>connecting</div>
+	<p class='connecting'>connecting</p>
 {:else if $isDisconnected}
-	<div class='disconnected'>disconnected</div>
+	<p class='disconnected'>disconnected</p>
 {/if}
 
 <Nav {segment}/>
